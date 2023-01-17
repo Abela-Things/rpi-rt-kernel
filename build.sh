@@ -25,6 +25,9 @@ fi
 cp /raspios/config.txt /raspios/mnt/boot/
 touch /raspios/mnt/boot/ssh
 
+# Uncomment this line to fix the USB issue on Pi Zero 2 directly in the generated image by appending the needed boot options to cmdline.txt.
+# sed '$ s/$/ dwc_otg.fiq_enable=0 dwc_otg.fiq_fsm_enable=0/' /raspios/mnt/boot/cmdline.txt > newcmdline && mv newcmdline /raspios/mnt/boot/cmdline.txt
+
 umount /raspios/mnt/disk
 umount /raspios/mnt/boot
 
